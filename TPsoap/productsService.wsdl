@@ -1,0 +1,23 @@
+<definitions name="ProductsService"
+  targetNamespace="http://localhost:8000/products"
+  xmlns:tns="http://localhost:8000/products"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+</definitions>
+<definitions>
+
+ <types>
+    <xsd:schema targetNamespace="http://localhost:8000/products">
+      <xsd:element name="CreateProductRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="name" type="xsd:string"/>
+            <xsd:element name="about" type="xsd:string"/>
+            <xsd:element name="price" type="xsd:decimal"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+  </types>
+
+</definitions>
