@@ -1,21 +1,27 @@
 const soap = require("soap");
 
 soap.createClient("http://localhost:8000/products?wsdl", {}, function (err, client) {
-  if (err) {
-    console.error("Error creating SOAP client:", err);
-    return;
-  }
-  // Make a SOAP request
-  client.CreateProduct({ name: "My product" }, function (err, result) {
     if (err) {
-      console.error(
-        "Error making SOAP request:",
-        err.response.status,
-        err.response.statusText,
-        err.body
-      );
+      console.error("Error creating SOAP client:", err);
       return;
     }
-    console.log("Result:", result);
+  
+    // Créer un produit
+    // client.CreateProduct({ name: "My product", about: "test", price: "10" }, function (err, result) {
+    //   if (err) {
+    //     console.error("Error making SOAP request:", err);
+    //     return;
+    //   }
+    //   console.log("Product Created:", result);
+    // });
+  
+    // Récupérer tous les produits
+    client.GetProducts({}, function (err, result) {
+      if (err) {
+        console.error("Error fetching products:", err);
+        return;
+      }
+      console.log("All Products:", result);
+    });
   });
-});
+  
